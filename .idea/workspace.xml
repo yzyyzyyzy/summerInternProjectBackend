@@ -20,7 +20,7 @@
     <session id="479870827">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.opened" value="2" />
@@ -73,23 +73,10 @@
         <entry file="file://$PROJECT_DIR$/modules/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1858">
-              <caret line="123" column="51" selection-start-line="123" selection-start-column="51" selection-end-line="123" selection-end-column="51" />
+              <caret line="125" column="51" selection-start-line="125" selection-start-column="51" selection-end-line="125" selection-end-column="51" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
-                <marker date="1594001056412" expanded="true" signature="235:1209" ph="..." />
-                <marker date="1594001056412" expanded="true" signature="389:1209" ph="..." />
-                <marker date="1594001056412" expanded="true" signature="1388:1389" ph="..." />
-                <marker date="1594001056412" expanded="true" signature="1388:1393" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/statics/js/version.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -157,11 +144,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/statics/js/mediaUtil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="79" column="39" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="39" />
+            <state relative-caret-position="257">
+              <caret line="82" column="31" lean-forward="true" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -894,34 +881,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statics/js/mediaUtil.js">
+    <entry file="file://$PROJECT_DIR$/statics/js/version.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="79" column="39" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="39" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="36">
+          <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1858">
-          <caret line="123" column="51" selection-start-line="123" selection-start-column="51" selection-end-line="123" selection-end-column="51" />
+          <caret line="125" column="51" selection-start-line="125" selection-start-column="51" selection-end-line="125" selection-end-column="51" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
-            <marker date="1594001056412" expanded="true" signature="235:1209" ph="..." />
-            <marker date="1594001056412" expanded="true" signature="389:1209" ph="..." />
-            <marker date="1594001056412" expanded="true" signature="1388:1389" ph="..." />
-            <marker date="1594001056412" expanded="true" signature="1388:1393" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statics/js/version.js">
+    <entry file="file://$PROJECT_DIR$/statics/js/mediaUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+        <state relative-caret-position="257">
+          <caret line="82" column="31" lean-forward="true" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
