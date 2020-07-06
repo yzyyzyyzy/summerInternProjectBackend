@@ -9,6 +9,8 @@ from modules import faceDetect
 from modules import tts
 
 
+# TODO 用户登录，存储历史记录
+
 def index(request):
     return render(request, 'index.html')
 
