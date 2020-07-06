@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script type="text/javascript" src="baidu_tts_cors.js"></script>
+  <script type="text/javascript">
+
+    // 初始化变量
+    var audio = null;
+
+
+    // 合成按钮
+    function tts() {
+        // 语音输出内容
+        let text = document.getElementById('text').value;
+
+        // 调用语音合成接口
+        audio = btts({
+            tex: text,
+            tok: '25.c2f4f601d91c341353aa3efa0be0e89c.315360000.1909297894.282335-10854623',
+            spd: 5,
+            pit: 5,
+            vol: 15,
+            per: 4
+        }, {
+            volume: 0.3,
+            autoDestory: true,
+            timeout: 10000,
+            hidden: true,
+            onInit: function (htmlAudioElement) {
+
+            },
+            onSuccess: function(htmlAudioElement) {
+                audio = htmlAudioElement;
+                //playBtn.innerText = '播放';
+                audio.play();
+            },
+            onError: function(text) {
+                alert(text)
+            },
+            onTimeout: function () {
+                alert('timeout')
+            }
+        });
+    }
+
+  </script>
+</head>
+<body>
+    <div>
+        <input type="text" id='text' value='看看要整点啥' style='width: 500px;'>
+        <button onclick='tts()'>合成</button>
+    </div>
+</body>
+</html>
