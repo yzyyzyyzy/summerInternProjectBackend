@@ -14,8 +14,12 @@ def get_face_list(token, dataURL):
 
     return face_list
 
+def _face_to_display_txt(face):
+    """给一个face的json信息，输出前端要显示的文字
+    """
+    pass
 
-def _face_to_txt(face):
+def _face_to_audio_txt(face):
     """给一个face的json信息，输出处理后要说的文本
 
     Args:
