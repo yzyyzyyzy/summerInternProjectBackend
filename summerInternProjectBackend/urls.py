@@ -21,7 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('camera/', views.camera_site),
-    path('detect/', views.detect),
+    path('detect/camera/', views.detect_camera),
+    path('detect/picfile/', views.detect_picfile),
     path('error/<str:msg>/', views.error),
     path('getToken/', views.getToken),
     path('result/', views.result)

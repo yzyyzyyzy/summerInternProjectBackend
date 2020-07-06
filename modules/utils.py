@@ -5,8 +5,12 @@ from modules import faceDetect
 from modules import tts
 
 
-def get_face_list(token, dataURL):
-    result = faceDetect.detect(token, dataURL)
+def dataURL_to_face_list(token, dataURL):
+    """根据摄像头照片dataURL获取识别数据
+    """
+    image64 = faceDetect.dataURL_to_image64(dataURL)
+
+    result = faceDetect.detect(token, image64)
 
     # TODO 可以判断一下有没有人脸，再进行下一步操作
 
@@ -14,7 +18,20 @@ def get_face_list(token, dataURL):
 
     return face_list
 
-def _face_to_display_txt(face):
+def picfile_to_face_list(token, picfile):
+    """根据图片文件流获取识别数据
+    """
+    image64 = faceDetect.picfile_to_image64(picfile)
+
+    result = faceDetect.detect(token, image64)
+
+    # TODO 可以判断一下有没有人脸，再进行下一步操作
+
+    face_list = result['face_list']
+
+    return face_list
+
+def face_to_display_txt(face):
     """给一个face的json信息，输出前端要显示的文字
     """
     pass
@@ -64,7 +81,7 @@ def faces_to_audio_files(token, face_list):
 
     audio_files = list()
     for face in face_list:
-        txt = _face_to_txt(face)
+        txt = _face_to_audio_txt(face)
         fileName = _save_file(tts.convert(token, txt, AUE=3), 'mp3')
         audio_files.append(fileName)
 

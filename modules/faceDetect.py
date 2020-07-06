@@ -41,6 +41,15 @@ def getToken():
         raise Exception('MAYBE API_KEY or SECRET_KEY not correct: access_token or scope not found in token response')
 
 
+def picfile_to_image64(picfile):
+    """二进制流图片转image64
+    """
+    # image = base64.b64encode(picfile.read())
+    # print(image,'\n')
+    image64 = str(base64.b64encode(picfile.read()), 'utf-8')
+    return image64
+
+
 def dataURL_to_image64(dataURL):
     """去掉"data:image/png;base64,"头部，返回后面image64部分
     
@@ -50,8 +59,8 @@ def dataURL_to_image64(dataURL):
 
 
 # 人脸识别
-def detect(token, dataURL):
-    """输入dataURL，输出调用百度API检测后的结果result
+def detect(token, image64):
+    """输入image64，输出调用百度API检测后的结果result
 
         result内容示例: {
             'face_num': 1,
@@ -69,7 +78,7 @@ def detect(token, dataURL):
         }
     """
     # token = getToken()
-    image64 = dataURL_to_image64(dataURL)
+    # image64 = dataURL_to_image64(dataURL)
 
     image_type = "BASE64"
     request_url = "https://aip.baidubce.com/rest/2.0/face/v3/detect"
@@ -104,15 +113,6 @@ def detect(token, dataURL):
     # 错误码 https://ai.baidu.com/ai-doc/FACE/5k37c1ujz
     raise Exception(
         "face detection error! err_code: {}, err_msg: {}".format(respjson['error_code'], respjson['error_msg']))
-
-
-# 图片转换为Base64编码，按路径传文件才需要用（现在直接传base64编码后的文件不需要调用了）
-def __img_to_BASE64(path):
-    with open(path, 'rb') as f:
-        image = base64.b64encode(f.read())
-        # print(image,'\n')
-        image64 = str(base64.b64encode(f.read()), 'utf-8')
-        return image64
 
 
 if __name__ == '__main__':

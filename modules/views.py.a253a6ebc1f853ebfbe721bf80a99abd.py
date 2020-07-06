@@ -112,15 +112,14 @@ def detect_picfile(request):
     """根据post来的上传的照片二进制流，后台检测人脸，把人脸json数组和音频url路径数组存入session，后跳转到/result/
     """
     if request.POST:
-        # 获取来自input标签的文件内容
-        picfile = request.FILES.get('picfile', None)
-        # print(picfile)
-        if picfile:
+        dataURL = request.FILES.get('picfile', None)
+        # print(dataURL)
+        if dataURL:
             # 有图片，调用图像识别api
             faceToken = request.COOKIES.get('face', None)
             ttsToken = request.COOKIES.get('tts', None)
             try:
-                face_list = utils.picfile_to_face_list(faceToken, picfile)
+                face_list = utils.dataURL_to_face_list(faceToken, dataURL)
                 audio_files = utils.faces_to_audio_files(ttsToken, face_list)
 
                 # 把结果存入session，然后跳转到/result/
