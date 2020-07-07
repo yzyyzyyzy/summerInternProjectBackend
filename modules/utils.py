@@ -23,7 +23,7 @@ def dataURL_to_faces(token, dataURL):
 
     return face_list
 
-def picfile_to_face_list(token, picfile):
+def picfile_to_faces(token, picfile):
     """根据图片文件流获取识别数据，数组的每个元素对应一张脸。
     """
     image64 = faceDetect.picfile_to_image64(picfile)

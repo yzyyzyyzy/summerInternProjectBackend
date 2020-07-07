@@ -140,7 +140,7 @@ def detect_picfile(request):
             ttsToken = request.COOKIES.get('tts', None)
             try:
                 # 每个元素是一张脸对应的json数据
-                faces = utils.picfile_to_face_list(faceToken, picfile)
+                faces = utils.picfile_to_faces(faceToken, picfile)
 
                 # 前端要播放的音频（每个元素是一个字典，字典每个元素是音频文件名）
                 audio_files = utils.faces_to_audio_files(ttsToken, faces)
@@ -184,7 +184,7 @@ def result(request):
         context['audio_files'] = request.session.get('audio_files', None)
         request.session['result_expired'] = True
         # TODO 音频数据用完之后是否需要删掉？
-        return render(request, 'result.html')
+        return render(request, 'result.html', context)
     else:
         return redirect('/camera/')
     pass
