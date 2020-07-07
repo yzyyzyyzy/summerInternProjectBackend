@@ -11,12 +11,22 @@
     {% for face in face_list %}
       <div>{{ face }}</div>
     {% endfor %}
+    <br>
+    {% for face_display in face_display_list %}
+        <div>年龄：{{ face_display.age }}</div>
+        <div>颜值：{{ face_display.beauty }}</div>
+        <div>表情：{{ face_display.expression }}</div>
+        <div>性别：{{ face_display.gender }}</div>
+        <div>是否戴眼镜：{{ face_display.glasses }}</div>
+    {% endfor %}
     <hr>
     <p>音频结果</p>
     {% for audio in audio_files %}
-      <div>
-          <audio src="{% static "files/" %}{{ audio }}" controls></audio>
-      </div>
+      {% for audio_item in audio.values %}
+            <div>
+                <audio src="{% static 'files/' %}{{ audio_item }}" controls></audio>
+            </div>
+        {% endfor %}
     {% endfor %}
 </body>
 </html>
