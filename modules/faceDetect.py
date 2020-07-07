@@ -79,15 +79,21 @@ def detect(token, image64):
     """
     # token = getToken()
     # image64 = dataURL_to_image64(dataURL)
-
+    
+    print("in face detect")
+    
     image_type = "BASE64"
     request_url = "https://aip.baidubce.com/rest/2.0/face/v3/detect"
+
+    # print(request_url)
 
     # 根据自己需要的数据，在face_field添加相应字段
     params = {'image': image64, 'image_type': image_type, "max_face_num": 10,
               'face_field': 'age,beauty,expression,gender,glasses'}
+    # print(params)
 
     request_url = request_url + "?access_token=" + token
+    # print(request_url)
 
     headers = {'content-type': 'application/json'}
 
@@ -104,6 +110,8 @@ def detect(token, image64):
     'result': None or json
     }
     """
+    
+    # print(respjson)
 
     if respjson['error_code'] == 0:
         # 识别成功
