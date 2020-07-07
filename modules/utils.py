@@ -1,5 +1,6 @@
 import os
 import uuid
+import json
 
 from modules import faceDetect
 from modules import tts
@@ -34,7 +35,28 @@ def picfile_to_face_list(token, picfile):
 def face_to_display_txt(face):
     """给一个face的json信息，输出前端要显示的文字
     """
-    pass
+    if face['expression']['type']=='none':
+        expression = '无'
+    elif face['expression']['type']=='smile':
+        expression = '微笑'
+    else:
+        expression = '大笑'
+
+    if face['gender']['type']=='male':
+        gender = '男'
+    else:
+        gender = '女'
+
+    if face['glasses']['type']=='none':
+        glasses = '没有戴眼镜'
+    elif face['glasses']['type']=='common':
+        glasses = '戴了普通眼镜'
+    else:
+        glasses = '戴了墨镜'
+    display_txt = {'年龄':face['age'],'颜值':face['beauty'],'表情':expression,'性别':gender,'是否带眼镜':glasses}
+
+    #返回一个json
+    return json.dumps(display_txt)
 
 def _face_to_audio_txt(face):
     """给一个face的json信息，输出处理后要说的文本
@@ -54,8 +76,32 @@ def _face_to_audio_txt(face):
             }
 
     """
-    # TODO 待实现
-    return '阿巴阿巴'
+    audio = ''
+    audio = audio + '年龄' + str(face['age']) + '岁，' + '颜值' + str(face['beauty']) + '分，' + '表情'
+
+    expression = face['expression']
+    if expression['type'] == 'none':
+        audio = audio + '无，'
+    elif expression['type'] == 'smile':
+        audio = audio + '微笑，'
+    else:
+        audio = audio + '大笑，'
+
+    audio = audio + '性别，'
+    gender = face['gender']
+    if gender == 'male':
+        audio = audio + '男，'
+    else:
+        audio = audio + '女，'
+
+    glasses = face['glasses']
+    if glasses['type'] == 'none':
+        audio = audio + '没戴眼镜'
+    elif glasses['type'] == 'common':
+        audio = audio + '戴了普通眼镜'
+    else:
+        audio = audio + '戴了墨镜'
+    return audio
 
 def _save_file(bytes: bytes, suffix):
     """给定文件二进制流和后缀名（不带点），保存文件在statics/files，返回文件名('xxx.mp3')
