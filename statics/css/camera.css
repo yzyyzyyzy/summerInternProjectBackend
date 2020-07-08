@@ -8,19 +8,37 @@ video {
 }
 
 #photoWrapper {
-    display: none;
+    display: flex;
 }
 
 #photoCanvas {
     display: none;
 }
 
-#devImgWrapper {
+#previewWrapper {
     text-align: center;
 }
 
-#img {
+#photoPreview {
     display: inline-block;
     width: 30rem;
 }
 
+#loading {
+	width: 10vw;
+	height: 100vh;
+	opacity: 0.5;
+	background: url(../images/tl.png);
+	background-size:100%;
+	border-width:0px;	/*边框透明*/
+	outline:none;	/*点击后没边框*/
+}
+#loading:hover{
+	width: 10vw;
+	height: 100vh;
+	opacity: 0.9;
+	background: url(../images/tl.png);
+	background-size:105%;
+	border-width:0px;	/*边框透明*/
+	outline:none;	/*点击后没边框*/
+}

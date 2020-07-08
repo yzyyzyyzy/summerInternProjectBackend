@@ -19,7 +19,7 @@ URLs.upload = ""; // TODO 后台上传图片地址
 var video = document.getElementById('video');
 const photoCanvas = document.getElementById('photoCanvas');
 const photoContext = photoCanvas.getContext('2d');
-let img = document.getElementById("img");
+let photoPreview = document.getElementById("photoPreview");
 
 // var imageCapture = null;
 // 是否打开了摄像头
@@ -188,11 +188,10 @@ function takePhoto () {
     document.getElementById("picDataURL").value = dataURL;
     log("已设置picDataURL")
     // TODO post的过程中显示loading窗口
+    
+    photoPreview.src = dataURL
 
-    if (DEBUG.output_img) {
-        img.src = dataURL
-    }
-
+    document.getElementById("photoBtn").innerText = '重拍'
 
     // 用polyfill的话对应if分支不走instanceof ImageData，photoCanvas instanceof HTMLCanvasElement
     // imageBitmap = createImageBitmap(photoCanvas);
